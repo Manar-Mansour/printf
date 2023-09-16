@@ -11,7 +11,6 @@ int _putchar(char c)
 int _printf(const char *format, ...)
 {
     int count = 0;
-    int divisor = 1;
     va_list args;
     va_start(args, format);
 
@@ -46,7 +45,9 @@ int _printf(const char *format, ...)
                 case 'i':
                 {
                     int num = va_arg(args, int);
-                    if (num < 0)
+		    int divisor = 1;
+		  
+		    if (num < 0)
                     {
                         _putchar('-');
                         count++;
