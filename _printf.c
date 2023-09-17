@@ -3,17 +3,28 @@
 #include <unistd.h>
 #include "main.h"
 
+/**
+ * _putchar - Writes a character to stdout
+ * @c: The character to write
+ *
+ * Return: On success, 1. On error, -1 is returned.
+ */
 int _putchar(char c)
 {
     return write(1, &c, 1);
 }
 
+/**
+ * _printf - Prints formatted output
+ * @format: The format string
+ *
+ * Return: The number of characters printed
+ */
 int _printf(const char *format, ...)
 {
     int count = 0;
     va_list args;
     va_start(args, format);
-
 
     while (*format)
     {
@@ -33,7 +44,8 @@ int _printf(const char *format, ...)
                 case 's':
                 {
                     char *str = va_arg(args, char *);
-		    int i;
+                    int i;
+                    
                     for (i = 0; str[i]; i++)
                     {
                         _putchar(str[i]);
@@ -45,16 +57,15 @@ int _printf(const char *format, ...)
                 case 'i':
                 {
                     int num = va_arg(args, int);
-		    int divisor = 1;
-		  
-		    if (num < 0)
+                    int divisor = 1;
+                    
+                    if (num < 0)
                     {
                         _putchar('-');
                         count++;
                         num = -num;
                     }
-                   
-		    
+                    
                     while (num / divisor >= 10)
                     {
                         divisor *= 10;
