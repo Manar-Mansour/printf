@@ -1,50 +1,49 @@
 /**
- * _printf - Print formatted output
- * @format: The format string containing format specifiers
+ * _printf - Format and print data to the standard output.
+ * @format: A pointer to a null-terminated format string.
  *
  * Description:
- * The _printf function prints formatted output to stdout, similar to the
- * standard printf function in the C library. It accepts a format string
- * containing format specifiers and a variable number of arguments that
- * correspond to the specifiers in the format string.
+ * This function formats and prints data to the standard output based on the
+ * format specifier provided in the format string. It supports various format
+ * specifiers for different data types and custom conversion specifiers.
  *
  * Return:
- * Upon successful execution, _printf returns the number of characters
- * printed (excluding the null byte '\0' used to end the output string).
- * If an error occurs, it returns -1.
+ * The function returns the number of characters printed.
+ * In case of an error, it returns -1.
  *
  * Format Specifiers:
- * - %c: Print a character.
- * - %s: Print a string.
- * - %d, %i: Print an integer.
- * - %%: Print a percent sign ("%").
- *
- * Parameters:
- * @format: A pointer to a null-terminated format string.
- *           It may contain ordinary characters and format specifiers.
- *
- * Usage:
- * To use _printf, you provide a format string followed by arguments that
- * match the format specifiers. For example:
- *
- * int len;
- * len = _printf("Hello, %s! You are %d years old.\n", "Alice", 30);
- *
- * In this example, "%s" is replaced with "Alice," and "%d" is replaced
- * with 30. The formatted string is printed to stdout, and len contains
- * the number of characters printed.
+ *   - %c: Character specifier. Prints a single character.
+ *   - %s: String specifier. Prints a null-terminated string.
+ *   - %d or %i: Integer specifier. Prints a signed integer.
+ *   - %u: Unsigned Integer specifier. Prints an unsigned integer.
+ *   - %o: Octal specifier. Prints an unsigned integer in octal format.
+ *   - %x or %X: Hexadecimal specifier. Prints an unsigned integer in hexadecimal format.
+ *   - %p: Pointer specifier. Prints a pointer's memory address in hexadecimal.
+ *   - %b: Binary specifier. Prints an unsigned integer in binary format.
+ *   - %r: Reverse string specifier. Prints a string in reverse order.
+ *   - %%: Literal '%' specifier. Prints a '%' character.
  *
  * Note:
- * - If an unsupported format specifier is encountered, it is treated as
- *   an ordinary character.
- * - The behavior of _printf may differ from the standard printf function
- *   for some edge cases, so it is recommended to thoroughly test it.
- * - The function uses the write system call to print characters to stdout,
- *   and it may return -1 in case of write errors.
+ *   - This function does not handle flag characters.
+ *   - It does not handle field width.
+ *   - Precision is not supported.
+ *   - Length modifiers are not handled.
  *
  * Example:
- * - _printf("Hello, %s!\n", "world"); // Prints "Hello, world!"
+ *   int count = _printf("Hello, %s! You have %d apples.\n", "Alice", 42);
+ *   // Output: "Hello, Alice! You have 42 apples."
  *
+ *   char binary[] = "101010";
+ *   count = _printf("Binary: %b\n", 42);
+ *   // Output: "Binary: 101010"
+ *
+ *   char str[] = "Hello";
+ *   count = _printf("Reversed: %r\n", str);
+ *   // Output: "Reversed: olleH"
+ *
+ *   void *ptr = NULL;
+ *   count = _printf("Pointer Address: %p\n", ptr);
+ *   // Output: "Pointer Address: 0x0"
  * Authors:
  * - Manar Mansour, Aya Salam
  */
