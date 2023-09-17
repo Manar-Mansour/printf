@@ -1,0 +1,52 @@
+/**
+ * _printf - Print formatted output
+ * @format: The format string containing format specifiers
+ *
+ * Description:
+ * The _printf function prints formatted output to stdout, similar to the
+ * standard printf function in the C library. It accepts a format string
+ * containing format specifiers and a variable number of arguments that
+ * correspond to the specifiers in the format string.
+ *
+ * Return:
+ * Upon successful execution, _printf returns the number of characters
+ * printed (excluding the null byte '\0' used to end the output string).
+ * If an error occurs, it returns -1.
+ *
+ * Format Specifiers:
+ * - %c: Print a character.
+ * - %s: Print a string.
+ * - %d, %i: Print an integer.
+ * - %%: Print a percent sign ("%").
+ *
+ * Parameters:
+ * @format: A pointer to a null-terminated format string.
+ *           It may contain ordinary characters and format specifiers.
+ *
+ * Usage:
+ * To use _printf, you provide a format string followed by arguments that
+ * match the format specifiers. For example:
+ *
+ * int len;
+ * len = _printf("Hello, %s! You are %d years old.\n", "Alice", 30);
+ *
+ * In this example, "%s" is replaced with "Alice," and "%d" is replaced
+ * with 30. The formatted string is printed to stdout, and len contains
+ * the number of characters printed.
+ *
+ * Note:
+ * - If an unsupported format specifier is encountered, it is treated as
+ *   an ordinary character.
+ * - The behavior of _printf may differ from the standard printf function
+ *   for some edge cases, so it is recommended to thoroughly test it.
+ * - The function uses the write system call to print characters to stdout,
+ *   and it may return -1 in case of write errors.
+ *
+ * Example:
+ * - _printf("Hello, %s!\n", "world"); // Prints "Hello, world!"
+ *
+ * Authors:
+ * - Manar Mansour, Aya Salam
+ */
+
+int _printf(const char *format, ...);
